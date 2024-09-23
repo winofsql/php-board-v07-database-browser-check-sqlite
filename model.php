@@ -153,8 +153,11 @@ function connectDb(){
     $result = null;
 
     try {
-        $result = new PDO( 'sqlite:../bbs.sqlite3' );
-    } 
+        // 合同用
+        // $result = new PDO( 'sqlite:../bbs.sqlite3' );
+        // 単独用
+        $result = new PDO( 'sqlite:./bbs.sqlite3' );
+    }
     catch ( PDOException $e ) {
         $error["db"] .= $e->getMessage();
         return $result;

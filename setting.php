@@ -1,6 +1,9 @@
 <?php
 // ******************************
 // PHP 8用
+// isset を使用せずに、変数に対して
+// 直接 "" を使用して空であると
+// 判断可能にする
 // ******************************
 $pv = explode(".", phpversion());
 if ($pv[0] + 0 >= 8) {
@@ -28,10 +31,5 @@ $log_text = "";
 $kensu = "";
 $error = [];
 $clear = "";
+// iframe-css.php で 使用。入力部分の高さの定義
 $view_head_height = "330";
-
-// データベース
-$host = "localhost";
-$user = "root";
-$dbname = "lightbox";
-$connect_string = "mysql:host={$host};dbname={$dbname}";

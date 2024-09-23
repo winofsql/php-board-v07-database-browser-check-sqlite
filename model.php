@@ -1,5 +1,6 @@
 <?php
 // *************************************
+// MARK:check_post
 // 入力チェック
 // *************************************
 function check_post() {
@@ -31,6 +32,7 @@ function check_post() {
 }
 
 // **************************************
+// MARK:write_data
 // データの書き込み処理
 // **************************************
 function write_data() {
@@ -54,11 +56,11 @@ function write_data() {
     try {
         // SQL 文の準備
         $stmt = $dbh->prepare($sql);
-        
+
         $stmt->bindValue( ':subject', $GLOBALS["subject"], PDO::PARAM_STR );
         $stmt->bindValue( ':from', $GLOBALS["name"], PDO::PARAM_STR );
         $stmt->bindValue( ':body', $GLOBALS["text"], PDO::PARAM_STR );
-        
+
         // 完成した SQL の実行
         $stmt->execute();
 
@@ -79,6 +81,7 @@ SCRIPT;
 }
 
 // **************************************
+// MARK:read_data
 // データの表示処理
 // **************************************
 function read_data() {
@@ -140,6 +143,7 @@ function read_data() {
 }
 
 // *************************************
+// MARK:connectDb
 // データベース接続
 // *************************************
 function connectDb(){
@@ -152,7 +156,6 @@ function connectDb(){
         $result = new PDO( 'sqlite:../bbs.sqlite3' );
     } 
     catch ( PDOException $e ) {
-        $error["db"] = "<div>{$GLOBALS["connect_string"]}, {$GLOBALS["user"]}, {$GLOBALS["password"]}</div>"; 
         $error["db"] .= $e->getMessage();
         return $result;
     }
@@ -164,6 +167,7 @@ function connectDb(){
 }
 
 // **************************
+// MARK:debug_print
 // デバッグ表示
 // **************************
 function debug_print() {

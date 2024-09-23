@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
+<?php // MARK:HEAD ?>
 <head>
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <title>掲示板 v07 MySQL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <title>掲示板 v07 SQLite</title>
 
 <?php require_once("iframe-css.php") ?>
     <link rel="stylesheet" href="client.css?_=<?= time() ?>">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 
 
-
+<?php // MARK:SCRIPT ?>
 <script>
 jQuery.isMobile = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
 toastr.options={"closeButton":false,"debug":false,"newestOnTop":false,"progressBar":false,"positionClass":"toast-bottom-center","preventDuplicates":false,"onclick":null,"showDuration":"300","hideDuration":"1000","timeOut":"3000","extendedTimeOut":"1000","showEasing":"swing","hideEasing":"linear","showMethod":"fadeIn","hideMethod":"fadeOut"};
@@ -49,10 +50,11 @@ $( function(){
 </script>
 </head>
 
+<?php // MARK:BODY ?>
 <body>
 <div id="bbs">
     <h3 class="alert alert-primary">
-        <a href="control.php" style="color:black;">掲示板 ( MySQL )</a>
+        <a href="control.php" style="color:black;">掲示板 ( SQLite )</a>
         <a href=".." style="float:right;text-decoration:none;">📂</a>
     </h3>
     <div id="content"
@@ -94,6 +96,7 @@ $( function(){
     </div>
 </div>
 
+<?php // MARK:IFRAME ?>
 <iframe id="extend" src="control.php?page=init" name="myframe"></iframe>
 
 </body>
